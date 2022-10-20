@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'lists/new'
   # postは新規投稿
   post 'lists' => 'lists#create'
+  get 'lists' => 'lists#index'
   get 'lists/show'
   get 'lists/edit'
   get '/top' => 'homes#top'

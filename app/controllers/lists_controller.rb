@@ -1,4 +1,5 @@
 class ListsController < ApplicationController
+  # インスタンス変数は指定しておかないとviewファイルで使えない
   def new
     # 空のインスタンスを作成＠はviewファイルに渡すときに使うインスタンス変数
     @list = List.new

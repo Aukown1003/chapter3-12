@@ -1,2 +1,12 @@
-<h1>Lists#index</h1>
-<p>Find me in app/views/lists/index.html.erb</p>
+<h1>投稿一覧</h1>
+<!--@list = List.allのデータをeach文で配列。代数はlist-->
+<!--%=の=は不要、htmlとして表示する理由が-->
+<% @lists.each do |list| %>
+ <p>タイトル</p>
+ <!--list.titleのリストはeach文の代数のlist-->
+ <span><%= list.title %></span>
+ <p>本文</p>
+ <!--list.bodyのリストはeach文の代数のlist-->
+ <span><%= list.body %></span>
+ 
+<% end %>
