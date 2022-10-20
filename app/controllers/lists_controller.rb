@@ -7,11 +7,14 @@ class ListsController < ApplicationController
 
   def create
     # データを受け取り空のインスタンスを作成,(list_params)はストロングパラメータ
-    list = List.new(list_params)
+    @list = List.new(list_params)
     # 代入したデータを保存
-    list.save
-# list_path = "/lists/#{list.id}" list_pathのlistはroutesの〜,as:で設定した値
-    redirect_to list_path(list.id)
+    if @list.save
+      # list_path = "/lists/#{list.id}" list_pathのlistはroutesの〜,as:で設定した値
+      redirect_to list_path(@list.id)
+    else
+      render :new
+    end
   end
 
   def index
@@ -32,8 +35,11 @@ class ListsController < ApplicationController
     # idの一致するデータを探し＠listに代入
     list =List.find(params[:id])
     # @listをアップデート
-    list.update(list_params)
-    redirect_to list_path(list.id)
+    if list.update(list_params)
+      redirect_to list_path(list.id)
+    else
+      render :edit
+    end
   end
 
   def destroy

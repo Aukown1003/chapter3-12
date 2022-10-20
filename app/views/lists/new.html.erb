@@ -1,3 +1,17 @@
+<h1>新規投稿</h1>
+<!--もしエラーが有るとき errors =true-->
+<% if @list.errors.any? %>
+<!--エラーの数をcountで数え表示-->
+  <%= @list.errors.count %>件のエラーが発生しました
+  <!--エラーの内容をeach文で呼び出し、記述-->
+   <ul>
+    <% @list.errors.full_messages.each do |message| %>
+    <!--messageはeach doの後で定義したmessage-->
+     <li><%= message %></li>
+    <% end %>
+   </ul>
+<% end %>
+
 <!--form_with model: [モデル名@list = List.new],url: 送信先,method: :タイプ do |f|-->
 <%= form_with model: @list, url: '/lists', method: :post do |f| %>
 
