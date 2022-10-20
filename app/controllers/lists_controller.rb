@@ -1,5 +1,16 @@
 class ListsController < ApplicationController
   def new
+    # 空のインスタンスを作成＠はviewファイルに渡すときに使うインスタンス変数
+    @list = List.new
+  end
+  
+  def create
+    # データを受け取り空のインスタンスを作成,(list_params)はストロングパラメータ
+    list = List.new(list_params)
+    # 代入したデータを保存
+    list.save
+    # top画面に移動
+    redirect_to "/top"
   end
 
   def index
@@ -9,5 +20,11 @@ class ListsController < ApplicationController
   end
 
   def edit
+  end
+  
+  # ストロングパラメータrequire(:モデル名).permit(:許可するカラム名,~)
+  private
+  def list_params
+    params.require(:list).permit(:title, :body)
   end
 end
