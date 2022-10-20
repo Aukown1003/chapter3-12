@@ -25,6 +25,7 @@ class ListsController < ApplicationController
   end
 
   def edit
+    @list = List.find(paramas[:id])
   end
 
   # ストロングパラメータrequire(:モデル名).permit(:許可するカラム名,~)
