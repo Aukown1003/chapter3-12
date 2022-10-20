@@ -14,6 +14,8 @@ class ListsController < ApplicationController
   end
 
   def index
+    # @lists：全件表示の為複数形、List.all:リストに入力してあるもののすべてのデータ
+    @lists = List.all
   end
 
   def show
