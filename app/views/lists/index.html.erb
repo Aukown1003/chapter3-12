@@ -1,12 +1,14 @@
 <h1>投稿一覧</h1>
 <!--@list = List.allのデータをeach文で配列。代数はlist-->
-<!--%=の=は不要、htmlとして表示する理由が-->
+<!--%=の=は不要、htmlとして表示する理由がないため-->
 <% @lists.each do |list| %>
  <p>タイトル</p>
- <!--list.titleのリストはeach文の代数のlist-->
- <span><%= list.title %></span>
- <p>本文</p>
+ <!--list.title,list.idのlistはeach文の代数のlist-->
+ <!--link_to 表示名, "/リンク先のurl"  ,忘れに注意-->
+ <!--list_path = "/lists/#{list.id}" list_pathのlistはroutesの~as:で設定した値-->
+ <span> <%= link_to list.title, list_path(list.id) %></span>
+ <!--<p>本文</p>-->
  <!--list.bodyのリストはeach文の代数のlist-->
- <span><%= list.body %></span>
+ <!--<span><　%= list.body %></span>-->
  
 <% end %>
