@@ -25,7 +25,15 @@ class ListsController < ApplicationController
   end
 
   def edit
-    @list = List.find(paramas[:id])
+    @list = List.find(params[:id])
+  end
+  
+  def update
+    # idの一致するデータを探し＠listに代入
+    list =List.find(params[:id])
+    # @listをアップデート
+    list.update(list_params)
+    redirect_to list_path(list.id)
   end
 
   # ストロングパラメータrequire(:モデル名).permit(:許可するカラム名,~)
