@@ -3,4 +3,14 @@
 <p><%= @list.title %></p>
 <h2>本文</h2>
 <p><%= @list.body %></p>
+
+ <p>画像</p>
+ <!--list.iamgeがあればtrue-->
+ <% if @list.image.attached? %>
+ <!--image_tag データ元,サイズ-->
+   <%= image_tag @list.image, size: "300x300" %>
+ <% else %>
+<!--falseであった場合no_imageを表示する-->
+   <%= image_tag 'no_image', size: "300x300" %>
+ <% end %>
 <%= link_to "編集", edit_list_path(@list.id) %>

@@ -10,5 +10,14 @@
  <!--<p>本文</p>-->
  <!--list.bodyのリストはeach文の代数のlist-->
  <!--<span><　%= list.body %></span>-->
- 
+ <p>画像</p>
+ <!--list.iamgeがあればtrue-->
+ <% if list.image.attached? %>
+ <!--image_tagはヘルパー、list.imageのlistはeachで設定しているlist-->
+ <!--image_tag データ元,サイズ。サイズ間は小文字のエックス(x)-->
+   <%= image_tag list.image, size: "200x200" %>
+ <% else %>
+<!--falseであった場合no_imageを表示する-->
+   <%= image_tag 'no_image', size: "200x200" %>
+ <% end %>
 <% end %>

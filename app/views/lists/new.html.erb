@@ -9,6 +9,10 @@
  <h4>本文</h4>
  <!--text_area 複数行の入力欄-->
  <%= f.text_area :body %>
-<!--submitは送信ボタン。投稿はそのボタンに表示するもの-->
- <%= f.submit '投稿' %>
+ 
+  <h4>画像</h4>
+  <!--file_fieldはファイルを投稿するフィールド、accept: "image/*"でimageのみ-->
+  <%= f.file_field :image, accept: "image/*" %>
+  <!--submitは送信ボタン。投稿はそのボタンに表示するもの-->
+<%= f.submit '投稿' %>
 <% end %>

@@ -39,6 +39,6 @@ class ListsController < ApplicationController
   # ストロングパラメータrequire(:モデル名).permit(:許可するカラム名,~)
   private
   def list_params
-    params.require(:list).permit(:title, :body)
+    params.require(:list).permit(:title, :body,:image)
   end
 end
