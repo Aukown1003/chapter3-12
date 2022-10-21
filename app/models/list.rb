@@ -7,8 +7,8 @@ class List < ApplicationRecord
    # 1対多(複数枚画像投稿)で関連付けるという宣言
   # has_many_attached :portrailts
   
-  # validates :対象のカラム名, presence(存在: true
+  # validates :対象のカラム名, presence(存在): true
   validates :title, presence: true
   validates :body, presence: true
-  validates :image, presence: true
+  # validates :image, presence: true
 end
