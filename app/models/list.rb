@@ -10,5 +10,5 @@ class List < ApplicationRecord
   # validates :対象のカラム名, presence(存在): true
   validates :title, presence: true
   validates :body, presence: true
-  # validates :image, presence: true
+  validates :image, presence: true
 end
