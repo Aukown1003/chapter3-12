@@ -1,23 +1,38 @@
-<h1>投稿一覧</h1>
+<!--wrap = 包む-->
+<div class="list-wrap">
+<% @lists.each do |list| %>
+  <div class="list-box">
+    <% if list.image.attached? %>
+      <%= image_tag list.image, size: "200x200" %>
+    <% else %>
+      <%= image_tag 'no_image', size: "200x200" %>
+    <% end %>
+    <div class="list-comment">
+      <span class="list-body"><%= list.body %></span>
+      <span class="list-title"><%=link_to list.title, list_path(list.id) %></span>
+    </div>
+  </div>
+<% end %>
+</div>
 <!--@list = List.allのデータをeach文で配列。代数はlist-->
 <!--%=の=は不要、htmlとして表示する理由がないため-->
-<% @lists.each do |list| %>
- <p>タイトル</p>
+<!--< % @lists.each do |list| %>-->
+<!-- <p>タイトル</p>-->
  <!--list.title,list.idのlistはeach文の代数のlist-->
  <!--link_to 表示名, "/リンク先のurl"  ,忘れに注意-->
  <!--list_path = "/lists/#{list.id}" list_pathのlistはroutesの~as:で設定した値-->
- <span> <%= link_to list.title, list_path(list.id) %></span>
+<!-- <span> < %= link_to list.title, list_path(list.id) %></span>-->
  <!--<p>本文</p>-->
  <!--list.bodyのリストはeach文の代数のlist-->
  <!--<span><　%= list.body %></span>-->
- <p>画像</p>
+<!-- <p>画像</p>-->
  <!--list.iamgeがあればtrue-->
- <% if list.image.attached? %>
+<!-- < % if list.image.attached? %>-->
  <!--image_tagはヘルパー、list.imageのlistはeachで設定しているlist-->
  <!--image_tag データ元,サイズ。サイズ間は小文字のエックス(x)-->
-   <%= image_tag list.image, size: "200x200" %>
- <% else %>
+<!--   < %= image_tag list.image, size: "200x200" %>-->
+<!-- < % else %>-->
 <!--falseであった場合no_imageを表示する-->
-   <%= image_tag 'no_image', size: "200x200" %>
- <% end %>
-<% end %>
+<!--   < %= image_tag 'no_image', size: "200x200" %>-->
+<!-- < % end %>-->
+<!--< % end %>-->
