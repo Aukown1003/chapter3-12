@@ -10,6 +10,7 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
     # 代入したデータを保存
     if @list.save
+      flash[:notice] = "投稿に成功しました"
       # list_path = "/lists/#{list.id}" list_pathのlistはroutesの〜,as:で設定した値
       redirect_to list_path(@list.id)
     else
@@ -40,6 +41,7 @@ class ListsController < ApplicationController
     list =List.find(params[:id])
     # @listをアップデート
     if list.update(list_params)
+      flash[:notice] = "編集に成功しました"
       redirect_to list_path(list.id)
     else
       render :edit

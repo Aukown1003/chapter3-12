@@ -88,10 +88,17 @@ main {
 }
 
 .list-title {
-  display: block;  font-size: 18px;
+  display: block;  
+  font-size: 18px;
   overflow: hidden;
   /*テキストを折り返して表示させないようにする*/
   white-space: nowrap;
   /*領域を超えたテキストを...にする*/
   text-overflow: ellipsis;
+}
+
+.flash_box{
+  width: 100%;
+  background-color: green;
+  color: white;
 }
