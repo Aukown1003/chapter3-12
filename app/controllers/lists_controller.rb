@@ -13,6 +13,10 @@ class ListsController < ApplicationController
       # list_path = "/lists/#{list.id}" list_pathのlistはroutesの〜,as:で設定した値
       redirect_to list_path(@list.id)
     else
+      # indexにリダイレクトするにはindexと同じ処理をする必要がある。
+      # index.htmlには@listsが定義。@lists = List.allであるため同じように追記
+      # @lists = List.all
+      # render :index
       render :new
     end
   end
